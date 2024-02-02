@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EFExemplo.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Cadastro de Clientes";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@item.ClienteId">
+                        <svg bootstrap-icon="Hammer" width="24" height="24" aria-label="Hammer"></svg> Editar
+                    </a> |
+                </td>
+                <td>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.ClienteId">
+                        <svg bootstrap-icon="Trash" width="24" height="24" aria-label="Trash"></svg> Editar Deletar
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.ClienteId">Detalhes
+                    </a> |
+                    
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
